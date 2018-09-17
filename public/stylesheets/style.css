@@ -1,0 +1,25 @@
+body {
+  margin: 0; }
+
+a {
+  color: #00B7FF; }
+
+nav {
+  background: #4050d9; }
+
+button > a {
+  color: white; }
+
+.col-sm-3 > button {
+  margin-top: 5vh;
+  margin-left: 15vw; }
+
+.logo > img {
+  width: 15vw;
+  height: 15vh;
+  margin-right: 60vw; }
+
+.home-img {
+  background-image: url(../images/kayak-buddy.jpg); }
+
+/*# sourceMappingURL=style.css.map */

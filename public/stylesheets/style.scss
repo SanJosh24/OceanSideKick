@@ -1,0 +1,87 @@
+body {
+  // padding: 50px;
+  // font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+a {
+  color: #00B7FF;
+}
+
+nav {
+  background: #4050d9;
+}
+
+button > a  {
+  color: white;
+}
+
+.col-sm-3 > button {
+  margin-top: 5vh;
+  margin-left: 15vw;
+}
+
+.logo > img {
+  width: 15vw;
+  height: 15vh;
+  margin-right: 60vw; 
+}
+
+.home-img {
+  background-image: url(../images/kayak-buddy.jpg);
+}
+
+// .carousel-fade {
+//   .carousel-inner {
+//       .item {
+//           transition-property: opacity;
+//       }
+      
+//       .item,
+//       .active.left,
+//       .active.right {
+//           opacity: 0;
+//       }
+
+//       .active,
+//       .next.left,
+//       .prev.right {
+//           opacity: 1;
+//       }
+
+//       .next,
+//       .prev,
+//       .active.left,
+//       .active.right {
+//           left: 0;
+//           transform: translate3d(0, 0, 0);
+//       }
+//   }
+
+//   .carousel-control {
+//       z-index: 2;
+//   }
+// }
+
+
+
+// html, 
+// body, 
+// .carousel, 
+// .carousel-inner, 
+// .carousel-inner .item {
+//   height: 100%;
+// }
+
+// .item:nth-child(1) {
+//   background: #74C390;
+// }
+
+// .item:nth-child(2) {
+//   background: #51BCE8;
+// }
+
+// .item:nth-child(3) {
+//   background: #E46653;
+// }
+
