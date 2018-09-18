@@ -22,16 +22,27 @@ router.post("/signup",
     const email = req.body.email;
     const username = req.body.username;
     const password = req.body.password;
-    const imgPath = req.file.url;
-    const imgName = req.file.originalname;
+    var imgName;
+    var imgPath;
+
+    if(imgPath === undefined) {
+      imgPath = "../images/blank-profile-picture.png";
+      imgName = "blank man";
+    } else {
+      imgPath = req.file.url;
+      imgName = req.file.originalname;
+    }
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
 
     const newUser = new User({
       email,
       username,
-      password: hashPass
+      password: hashPass,
+      imgName,
+      imgPath
     });
+ 
     newUser.save()
       .then(response => {
         transporter.sendMail({
@@ -47,6 +58,7 @@ router.post("/signup",
               info
             }, console.log(info)))
             .catch(error => console.log(error));
+            res.redirect(`/profile/${response._id}`);
         })
         .catch((err) => {
           console.log("error when signing up ---------------", err);
@@ -54,7 +66,7 @@ router.post("/signup",
             message: req.flash("error")
           });
         });
-        res.redirect('/');
+        
         let transporter = nodemailer.createTransport({
           service: 'Gmail',
           auth: {
