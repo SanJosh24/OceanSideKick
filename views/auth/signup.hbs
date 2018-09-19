@@ -1,26 +1,23 @@
-<h2>Signup</h2>
+<video style="position: fixed; z-indez: -99; width: 100vw; height: 99vh" muted autoplay="autoplay" loop="loop"><source src="/images/beachSunsetVideo.mp4" type="video/mp4" /></video>
+<div class="login-page">
+  <div class="form">
+    <form action="/signup" method="POST" id="form-container" enctype="multipart/form-data" class="login-form">
 
-<form action="/signup" method="POST" id="form-container" enctype="multipart/form-data">
-  <label for="email">Email Address</label>
-  <input id="email" type="email" name="email" placeholder="Email Address">
-  <br><br>
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Username">
-  <br><br>
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br><br>
-  <label for="">Profile Picture</label>
-  <input type="file" name="photo">
+      <label for="username">Username</label>
+      <input type="text" placeholder="username" name="username"/>
 
-  {{#if message}}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
-  <br><br>
+      <label for="password">Password</label>
+      <input type="password" placeholder="password" name ='password'/>
 
-  <button>Create account</button>
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/login">Login</a>
-  </p>
-</form>
+      <label for="email address">Email Address</label>
+      <input type="text" placeholder="email address" name="email"/>
+
+      <label for="profile-picture">Profile Picture</label>
+      <input type="file" name="photo">
+
+      <button>create</button>
+      <p class="message">Already registered? <a href="/login">Sign In</a></p>
+
+    </form>
+  </div>
+</div>

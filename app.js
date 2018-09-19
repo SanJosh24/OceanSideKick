@@ -11,6 +11,8 @@ const path         = require('path');
 const bcrypt      = require("bcryptjs");
 const passport    = require("passport");
 const $           = require('jquery');
+const session    = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 
 mongoose.Promise = Promise;
 mongoose
@@ -41,16 +43,16 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
       
-// app.use(session({
-//   secret: "basic-auth-secret",
-//   cookie: { maxAge: 60000 },
-//   resave: true,
-//   saveUninitialized: true,
-//   store: new MongoStore({
-//     mongooseConnection: mongoose.connection,
-//     ttl: 24 * 60 * 60 // 1 day
-//   })
-// }));
+app.use(session({
+  secret: "basic-auth-secret",
+  cookie: { maxAge: 60000 },
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60 // 1 day
+  })
+}));
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
@@ -80,6 +82,14 @@ passport.deserializeUser((id, cb) => {
 //   });
 // }));
 
+
+// This will make a user variable available in all templates, provided that req.user is populated. 
+// Make sure that you declare that middleware after you declare the passport.session middleware,
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
@@ -98,6 +108,9 @@ app.use('/', authRoutes);
 
 const profileRoutes = require('./routes/profileRoutes');
 app.use('/', profileRoutes);
+
+const eventsRoutes = require('./routes/eventsroutes');
+app.use('/', eventsRoutes);
 
 
 module.exports = app;

@@ -1,19 +1,13 @@
-<form action="/login" method="POST" id="form">
-  <h2>Login</h2>
-
-  <label for="username">Username</label>
-  <input type="text" name="username" placeholder="Username">
-
-  <label for="password">Password</label>
-  <input type="password" name="password" placeholder="Password">
-
-  {{#if errorMessage }}
-    <div class="error-message">{{ errorMessage }}</div>
-  {{/if}}
-
-  <button>Sign in</button>
-
-  <p class="account-message">
-    Don't have an account? <a href="/signup">Sign up</a>
-  </p>
-</form>
+<video style="position: fixed; z-indez: -99; width: 100vw; height: 99vh" muted autoplay="autoplay" loop="loop"><source src="/images/beachSunsetVideo.mp4" type="video/mp4" /></video>
+<div class="login-page">
+  <div class="form">
+    <form action="/login" method="POST" id="form" class="login-form">
+      <label for="username">Username</label>
+      <input type="text" name="username" placeholder="username"/>
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="password"/>
+      <button>Sign in</button>
+      <p class="message">Not registered? <a href="/signup">Create an account</a></p>
+    </form>
+  </div>
+</div>

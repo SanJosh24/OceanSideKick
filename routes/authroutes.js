@@ -24,17 +24,19 @@ router.post("/signup",
     const password = req.body.password;
     var imgName;
     var imgPath;
-
+    
     if(imgPath === undefined) {
+
       imgPath = "../images/blank-profile-picture.png";
-      imgName = "blank man";
+      imgName = "no profile pic";
     } else {
       imgPath = req.file.url;
       imgName = req.file.originalname;
     }
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
-
+    
+    console.log(req.file.originalname);
     const newUser = new User({
       email,
       username,
@@ -42,7 +44,33 @@ router.post("/signup",
       imgName,
       imgPath
     });
- 
+    let transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'sanjoshspam@gmail.com',
+        pass: 'SpamKill3r'
+      }
+    });
+    
+    if (email === "" || username === "" || password === "") {
+      req.flash('error', 'please specify a username and password to sign up');
+      res.render("auth/signup", {
+        message: req.flash("error")
+      });
+      return;
+    }
+    
+    User.findOne({
+      username
+    })
+    .then(user => {
+      if (user !== null) {
+        res.render("auth/signup", {
+          message: req.flash("error")
+        });
+        return;
+      }
+    });
     newUser.save()
       .then(response => {
         transporter.sendMail({
@@ -66,74 +94,46 @@ router.post("/signup",
             message: req.flash("error")
           });
         });
-        
-        let transporter = nodemailer.createTransport({
-          service: 'Gmail',
-          auth: {
-            user: 'sanjoshspam@gmail.com',
-            pass: 'SpamKill3r'
-          }
-        });
-        
-        if (email === "" || username === "" || password === "") {
-          req.flash('error', 'please specify a username and password to sign up');
-          res.render("auth/signup", {
-            message: req.flash("error")
-          });
-          return;
-        }
-        
-        User.findOne({
-          username
-        })
-        .then(user => {
-          if (user !== null) {
-            res.render("auth/signup", {
-              message: req.flash("error")
-            });
-            return;
-          }
-        });
     });
         
-router.get("/login", (req, res, next) => {
-  res.render("../views/auth/login.hbs");
-});
-
-router.post("/login", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
-
-  if (username === "" || password === "") {
-    res.render("auth/login", {
-      errorMessage: "Indicate a username and a password to sign up"
+    router.get("/login", (req, res, next) => {
+      res.render("../views/auth/login.hbs");
     });
-    return;
-  }
-
-  User.findOne({
-      "username": username
-    })
-    .then(user => {
-      if (err || !user) {
+    
+    router.post("/login", (req, res, next) => {
+      const username = req.body.username;
+      const password = req.body.password;
+    
+      if (username === "" || password === "") {
         res.render("auth/login", {
-          errorMessage: "The username doesn't exist"
+          errorMessage: "Indicate a username and a password to sign up"
         });
         return;
       }
-      if (bcrypt.compareSync(password, user.password)) {
-        // Save the login in the session!
-        req.session.currentUser = user;
-        res.redirect("/");
-      } else {
-        res.render("auth/login", {
-          errorMessage: "Incorrect password"
+    
+      User.findOne({
+          "username": username
+        })
+        .then(user => {
+          if (!user) {
+            res.render("auth/login", {
+              errorMessage: "The username doesn't exist"
+            });
+            return;
+          }
+          if (bcrypt.compareSync(password, user.password)) {
+            // Save the login in the session!
+            req.session.currentUser = user;
+            res.redirect(`/profile/${user._id}`);
+          } else {
+            res.render("auth/login", {
+              errorMessage: "Incorrect password"
+            });
+          }
+        })
+        .catch(error => {
+          next(error);
         });
-      }
-    })
-    .catch(error => {
-      next(error);
     });
-});
-
+    
 module.exports = router;
