@@ -30,9 +30,9 @@ router.post("/eventsCreate", (req, res, next) => {
     Categories:    Categories
   })
   .then((event)=>{
-    res.redirect('events/eventslist', { 
-      user: user
-    });
+    res.redirect('events/eventslist')
+      // user: user
+    
   })
   .catch((err)=>{
     next (err);
