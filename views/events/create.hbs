@@ -1,3 +1,147 @@
+<video style="position: fixed; z-indez: -99; width: 101vw; height: 100vh" muted autoplay="autoplay" loop="loop">
+  <source src="/images/BlueVerticalLightParticlesBackground.mp4" type="video/mp4" />
+</video>
+
 <div class="create-event-header">
-<h1>Welcome {{user.username}}<br>Start a new event!</h1>
+  <h1>Welcome {{user.username}}!
+    <br>Start a new event here</h1>
 </div>
+
+<div class="create-event">
+
+  <form method="POST" action= "/eventsCreate" id="form-container"  class="login-form">
+
+    <div id="create-event1">
+
+      <div class="create-event1-img">
+        <img src="/images/world-gif.gif" alt="">
+        <p>Step 1 of 4
+          <br>
+          <b>Location</b>
+        </p>
+      </div>
+
+      <div class="create-event1-content">
+        <h5 class="event-steps">
+          <b>Where is the location of your event?</b>
+        </h5>
+        <br>
+        <div class="create-event1-form">
+
+
+          <label for="address">Address</label>
+          <input type="address" placeholder="Event address" name="address" />
+          <br>
+          <br>
+          <button id="nextButton1">
+            <img src="/images/next.gif" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+    {{!--------------------------------------------------------------------------------------------------------------------------------------------------------------------}}
+    <div id="create-event2">
+
+      <div class="create-event2-img">
+        <img src="/images/Category.gif" alt="">
+        <p>Step 2 of 4
+          <br>
+          <b>Category</b>
+        </p>
+      </div>
+
+      <div class="create-event2-content">
+        <h5 class="event-steps">
+          <b>What will your event be about?</b>
+        </h5>
+        <br>
+        <div class="create-event2-form">
+
+          <label for="Categories">Catergory</label>
+          <select name="Categories">
+            <option value="kayak-fishing">Kayak Fishing</option>
+            <option value="off-shore-fishing">Off shore fishing</option>
+            <option value="in-shore-fishing">In shore fishing</option>
+            <option value="freshwater-fishing">Freshwater fishing</option>
+          </select>
+          <br>
+          <br>
+          <button id="nextButton2">
+            <img src="/images/next.gif" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+    {{!--------------------------------------------------------------------------------------------------------------------------------------------------------------------}}
+    <div id="create-event3">
+
+      <div class="create-event3-img">
+        <img src="/images/description.gif" alt="">
+        <p>Step 3 of 4
+          <br>
+          <b>Description</b>
+        </p>
+      </div>
+
+      <div class="create-event3-content">
+        <h5 class="event-steps">
+          <b>What will your event be named?</b>
+        </h5>
+        <br>
+        <div class="create-event3-form">
+
+          <label for="eventName">Event name</label>
+          <br>
+          <input type="text" placeholder="Name of event" name="eventName" />
+          <br>
+          <br>
+          <h5 class="event-steps">
+            Describe what will be going on in your event.
+          </h5>
+          <label for="event-description"></label>
+          <textarea name="description" id="" cols="30" rows="10" placeholder="Describe what will be going on in your event"></textarea>
+          <button id="nextButton3">
+            <img src="/images/next.gif" alt="">
+          </button>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+    {{!--------------------------------------------------------------------------------------------------------------------------------------------------------------------}}
+
+    <div id="create-event4">
+
+      <div class="create-event4-img">
+        <img src="/images/submit.gif" alt="">
+        <p>Step 4 of 4
+          <br>
+          <b>Submit!</b>
+        </p>
+      </div>
+
+      <div class="create-event4-content">
+        <h5 class="event-steps">
+          <b>Now its time to submit your event.</b>
+        </h5>
+        <br>
+        <div class="create-event4-form">
+          <button id="submitButton">
+            <img src="/images/upload.gif" alt="">
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<script>
+  const displayCard = (button, card) => {
+    const displayButton = document.getElementById(button);
+    const displayCard   = document.getElementById(card);
+    displayButton.addEventListener("click", (e) => { displayCard.style.display = 'block'; e.preventDefault() }, false);
+  }
+  displayCard('nextButton1', 'create-event2');
+  displayCard('nextButton2', 'create-event3');
+  displayCard('nextButton3', 'create-event4');
+
+</script>

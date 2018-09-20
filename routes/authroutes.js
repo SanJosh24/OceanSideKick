@@ -24,9 +24,8 @@ router.post("/signup",
     const password = req.body.password;
     var imgName;
     var imgPath;
-    
-    if(imgPath === undefined) {
-
+    console.log("====================================== ", req.file)
+    if(req.file === undefined) {
       imgPath = "../images/blank-profile-picture.png";
       imgName = "no profile pic";
     } else {
@@ -36,7 +35,7 @@ router.post("/signup",
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
     
-    console.log(req.file.originalname);
+    // console.log(req.file.originalname);
     const newUser = new User({
       email,
       username,

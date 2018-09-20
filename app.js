@@ -45,7 +45,7 @@ app.use(require('node-sass-middleware')({
       
 app.use(session({
   secret: "basic-auth-secret",
-  cookie: { maxAge: 60000 },
+  cookie: { maxAge: 600000 },
   resave: true,
   saveUninitialized: true,
   store: new MongoStore({

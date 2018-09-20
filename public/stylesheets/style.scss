@@ -7,9 +7,24 @@ body {
 a {
   color: #00B7FF;
 }
-
+.custcontainer{
+  position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+  // background: url(/public/images/beachSunsetVideo.mp4);
+}
 nav {
+  z-index: 2;
+  margin-top: 0;
+  position: fixed;
   background: #4050d9;
+}
+.profilePage{
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
 }
 
 button > a  {
@@ -162,4 +177,129 @@ body {
 .create-event-header {
   display: flex;
   justify-content: center;
+  text-align: center;
+}
+
+#create-event1 {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 50vw;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+// .create-event1 {
+//   display: flex;
+// }
+
+.create-event1-img > img {
+  width: 4vw;
+  height: 7vh;
+}
+
+.create-event1-content {
+  // display: flex;
+  // justify-content: center;
+  // text-align: center;
+  margin-left: 2vw;
+}
+
+#create-event2 {
+  display: none;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 50vw;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.create-event2-img > img {
+  width: 5vw;
+  height: 7vh;
+}
+
+.create-event2-content {
+  // display: flex;
+  // justify-content: center;
+  // text-align: center;
+  margin-left: 2vw;
+}
+
+#create-event3 {
+  display: none;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 50vw;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.create-event3-img > img {
+  width: 5vw;
+  height: 7vh;
+}
+
+.create-event3-content {
+  // display: flex;
+  // justify-content: center;
+  // text-align: center;
+  margin-left: 2vw;
+}
+
+#create-event4 {
+  display: none;
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 50vw;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.create-event4-img > img {
+  width: 5vw;
+  height: 7vh;
+}
+
+.create-event4-content {
+  // display: flex;
+  // justify-content: center;
+  // text-align: center;
+  margin-left: 2vw;
+}
+
+button > img {
+  width: 10vw;
+}
+
+.event-steps {
+  color: #4050d9;
+}
+
+textarea {
+  width: 32vw;
+}
+
+.events-header {
+  margin-top: 15vh;
+  display: flex;
+  justify-content: center;
+}
+
+.events-div {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  padding: 1vw;
 }

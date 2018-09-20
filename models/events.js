@@ -2,12 +2,13 @@ const mongoose = require("mongoose");
 const Schema   = mongoose.Schema;
 
 const eventsSchema = new Schema({
-  name: String,
+  eventName: String,
   date: String,
   description: String,
-  location: String,
+  address: String,
   participants: Array,
   comments: Array,
+  Categories:String,
   picture: String,
   creatorId: String
 }, {
@@ -20,3 +21,4 @@ const eventsSchema = new Schema({
 const Events = mongoose.model("Events", eventsSchema);
 
 module.exports = Events;
+
