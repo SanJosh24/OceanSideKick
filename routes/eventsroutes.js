@@ -49,6 +49,16 @@ router.get('/events/eventsList',(req, res, next) => {
     })
     .catch(next);
   });
+
+router.get('/events/:id', (req, res, next) => {
+  Events.findById(req.params.id)
+    .then((ret) => {
+      res.render(`events/${ret._id}`, {
+        Events: ret
+      });
+    })
+    .catch(next);
+});
   
     
 module.exports = router;

@@ -7,9 +7,7 @@
 
 {{#each listOfEvents}}
 <div class="events-div">
-
-<h1>{{this.eventName}}</h1>
-
-
+  <h1>{{this.eventName}}</h1>
+    <a href="/events/{{this._id}}">View details</a>
 </div>
 {{/each}}
