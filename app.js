@@ -10,7 +10,7 @@ const logger       = require('morgan');
 const path         = require('path');
 const bcrypt      = require("bcryptjs");
 const passport    = require("passport");
-const $           = require('jquery');
+// const $           = require('jquery');
 const session    = require("express-session");
 const MongoStore = require("connect-mongo")(session);
 
