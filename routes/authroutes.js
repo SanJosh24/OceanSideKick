@@ -5,7 +5,7 @@ const uploadCloud = require('../config/cloudinary.js');
 const multer = require('multer');
 
 // User model
-const User = require("../models/User");
+const User = require("../models/user");
 
 const bcrypt = require("bcryptjs");
 const bcryptSalt = 10;

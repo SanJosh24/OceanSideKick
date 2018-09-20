@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const uploadCloud = require('../config/cloudinary.js');
 const multer = require('multer');
-const User = require("../models/User");
+const User = require("../models/user");
 const Events = require("../models/Events");
 
 
