@@ -1,0 +1,24 @@
+<div class="profilePage" style="margin-top: 1vw;">
+<div class="edit-div">
+<div>
+<h1>Edit {{Events.eventName}}</h1>
+</div>
+<br>
+<form action="/events/update/{{Events._id}}" method="POST">
+
+    <label for="">Event Name</label>
+    <input type="text" name="eventName" value="{{Movie.title}}">
+
+    <label for="">description</label>
+    <input type="text" name="description" value="{{Movie.genre}}">
+
+    <label for="">address</label>
+    <input type="text" name="address" value="{{Movie.plot}}">
+
+    <label for="">Categories</label>
+    <input type="text" name="Categories">
+
+    <button>Submit Changes</button>
+</form>
+</div>
+</div>

@@ -30,9 +30,8 @@ router.post("/eventsCreate", (req, res, next) => {
     Categories:    Categories
   })
   .then((event)=>{
-    res.redirect('events/eventslist')
+    res.redirect('events/eventslist');
       // user: user
-    
   })
   .catch((err)=>{
     next (err);
@@ -53,9 +52,48 @@ router.get('/events/eventsList',(req, res, next) => {
 router.get('/events/:id', (req, res, next) => {
   Events.findById(req.params.id)
     .then((ret) => {
-      res.render(`events/${ret._id}`, {
+      res.render(`events/show`, {
         Events: ret
       });
+    })
+    .catch(next);
+});
+
+router.get('/events/edit/:id', (req, res, next) => {
+  Events.findById(req.params.id)
+    .then((ret) => {
+      // console.log(ret);
+      res.render('events/edit', {
+        Events: ret
+      });
+    })
+    .catch(next);
+});
+
+router.post('/events/update/:id', (req, res, next) => {
+  
+  const ogVariable = {
+  eventName: req.body.eventName,
+  description: req.body.description,
+  address: req.body.address,
+  Categories: req.body.Categories
+  };
+
+  Events.findByIdAndUpdate(req.params.id, ogVariable,{
+    })
+    .then(() => {
+      res.redirect('/events/eventsList');
+    })
+    .catch((err) => {
+      console.log(err);
+      next();
+    });
+});
+
+router.post('/events/:id/delete', (req, res, next) => {
+  Events.findByIdAndRemove(req.params.id)
+    .then((ret) => {
+      res.redirect('/events/eventsList');
     })
     .catch(next);
 });

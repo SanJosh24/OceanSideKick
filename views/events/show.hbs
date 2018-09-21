@@ -1,0 +1,19 @@
+<div class="profilePage" style="margin-top: 1vw;">
+<div class="profile-div">
+<h1>{{Events.eventName}}</h1>
+<p>{{Events.description}}</p>
+<p>{{Events.address}}</p>
+<p>{{Events.Categories}}</p>
+<form action="/events/edit/{{Events._id}}">
+<button class="btn btn-outline-info"><span>Edit</span></button>
+</form>
+<br>
+ <form method="POST" action= "/events/:id/delete">
+<button class="btn btn-outline-info"><span>Delete</span></button>
+ </form>
+ <br>
+ <form action="/events/eventsList">
+ <button class="btn btn-outline-info"><span>Back to list of events</span></button>
+ </form>
+</div>
+</div>

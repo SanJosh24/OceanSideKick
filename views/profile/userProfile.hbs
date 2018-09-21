@@ -1,8 +1,105 @@
-
+ {{!--
 <div class="profilePage">
-<div class="profile-div">
-<img src="{{user.imgPath}}" alt="" class="profile-pic">
-<h1>{{user.username}}</h1>
-<button><a href="/events/eventsList">List of all events</a></button>
-</div>
-</div>
+  <div class="profile-div">
+    <img src="{{user.imgPath}}" alt="" class="profile-pic">
+    <h1>{{user.username}}</h1>
+    <button>
+      <a href="/events/eventsList">List of all events</a>
+    </button>
+  </div>
+</div> --}}
+
+<body>
+  <div class="container" style="margin-top: 5vw;">
+    <div class="innerwrap">
+      <section class="section1 clearfix">
+        <div>
+          <div class="row grid clearfix">
+            <div class="col2 first">
+              <img src="{{user.imgPath}}" alt="">
+              <h1>{{user.username}}</h1>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's</p>
+              <span>Follow</span>
+            </div>
+            <div class="col2 last">
+              <div class="grid clearfix">
+                <div class="col3 first">
+                  <h1>694</h1>
+                  <span>Following</span>
+                </div>
+                <div class="col3">
+                  <h1>452</h1>
+                  <span>Events Attended</span>
+                </div>
+                <div class="col3 last">
+                  <h1>1207</h1>
+                  <span>Followers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <ul class="row2tab clearfix">
+              <li>
+                <i class="fa fa-list-alt"></i>My event </li>
+              <li>
+                <i class="fa fa-heart"></i> My likes </li>
+              <li>
+                <i class="fa fa-check"></i> Following </li>
+              <li>
+                <i class="fa fa-thumbs-o-up "></i> Suggestions </li>
+            </ul>
+          </div>
+        </div>
+        <span class="smalltri">
+
+          <i class="fa fa-star"></i>
+        </span>
+      </section>
+      <section class="section2 clearfix">
+        <div class="grid">
+          <div class="col3 first">
+            <div class="postcont">
+              <img src="" alt="">
+            </div>
+            <div class="profileinfo">
+              <img src="{{user.imgPath}}" alt="">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy tex</p>
+              <span>Read more
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </div>
+          </div>
+          <div class="col3 center">
+            <div class="postcont">
+              <img src=""
+                alt="">
+            </div>
+            <div class="profileinfo">
+              <img src="{{user.imgPath}}" alt="">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy tex</p>
+              <span>Read more
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </div>
+          </div>
+          <div class="col3 last">
+            <div class="postcont">
+              <img src="" alt="">
+            </div>
+            <div class="profileinfo">
+              <img src="{{user.imgPath}}" alt="">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy tex</p>
+              <span>Read more
+                <i class="fa fa-angle-right"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
