@@ -22,7 +22,7 @@ router.post("/eventsCreate", (req, res, next) => {
   let Categories=   req.body.Categories;
   let user =          req.session.currentUser;
 
-  console.log('this is my body=>', req.body),
+  // console.log('this is my body=>', req.body),
   Events.create({
     eventName:     eventName,
     address:       address,
@@ -41,7 +41,7 @@ router.post("/eventsCreate", (req, res, next) => {
 router.get('/events/eventsList',(req, res, next) => {
   Events.find()
     .then((ret) => {
-      console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-= hi',ret);
+      // console.log('=-=-=-=-=-=-=-=-=-=-=-=-=-= hi',ret);
       res.render('events/eventslist', {
         listOfEvents: ret
       });
@@ -91,6 +91,7 @@ router.post('/events/update/:id', (req, res, next) => {
 });
 
 router.post('/events/:id/delete', (req, res, next) => {
+  // console.log("the params id ====================== ", req.params.id);
   Events.findByIdAndRemove(req.params.id)
     .then((ret) => {
       res.redirect('/events/eventsList');
